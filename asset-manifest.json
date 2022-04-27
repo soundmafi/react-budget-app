@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/react-budget-app/static/js/main.e2d382a2.js",
+    "main.js": "/react-budget-app/static/js/main.c58010b4.js",
     "index.html": "/react-budget-app/index.html",
-    "main.e2d382a2.js.map": "/react-budget-app/static/js/main.e2d382a2.js.map"
+    "main.c58010b4.js.map": "/react-budget-app/static/js/main.c58010b4.js.map"
   },
   "entrypoints": [
-    "static/js/main.e2d382a2.js"
+    "static/js/main.c58010b4.js"
   ]
 }
