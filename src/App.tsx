@@ -10,8 +10,11 @@ const App = () => {
 	return (
 		<StyledApp>
 			<StyledContainer>
-				<CustomSelect />
-				<Title textTitle="Budget App" />
+				<StyledHeader>
+					
+					<Title textTitle="Budget App" />
+					<CustomSelect />
+				</StyledHeader>
 				<StyledCardContainer>
 					<BudgetCard cardName="Budget" value={3000} />
 					<BudgetCard cardName="Remaining" value={2000} />
@@ -19,7 +22,7 @@ const App = () => {
 				</StyledCardContainer>
 
 				<Title textTitle="Expenses" />
-				<Input name={'search'} placeholder={'search ...'} type='text'/>
+				<Input name={'search'} placeholder={'search ...'} type="text" />
 				<StyledExpensesContainer>
 					<ExpenseCard expenseName={'shoping'} expenseValue={100} />
 					<ExpenseCard expenseName={'drinking'} expenseValue={200} />
@@ -29,8 +32,8 @@ const App = () => {
 
 				<Title textTitle="Add Expense" />
 				<StyledExpenseForm>
-					<Input name={'expenseName'} placeholder={'enter name ...'} type='text'/>
-					<Input name={'expenseCost'} placeholder={'enter cost ...'} type='number'/>
+					<Input name={'expenseName'} placeholder={'enter name ...'} type="text" />
+					<Input name={'expenseCost'} placeholder={'enter cost ...'} type="number" />
 					<Button />
 				</StyledExpenseForm>
 			</StyledContainer>
@@ -68,3 +71,9 @@ const StyledExpensesContainer = styled.div`
 	margin-top: 30px;
 	margin-bottom: 30px;
 `;
+
+const StyledHeader = styled.header`
+display: grid;
+grid-template-columns: 1fr 0.3fr;
+	
+`

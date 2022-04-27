@@ -16,14 +16,27 @@ const CustomSelect = () => {
 		control: (nativeStyles) => ({
 			...nativeStyles,
 			backgroundColor: '#ffffff',
-			width: 85,
-			position: 'absolute',
-			right: 0,
+			height: 30,
+			minHeight: 30,
 		}),
 
 		singleValue: (nativeStyles) => ({
 			...nativeStyles,
 			fontSize: 12,
+		}),
+		indicatorsContainer: (nativeStyles) => ({
+			...nativeStyles,
+			padding: 0,
+		}),
+
+		indicatorSeparator: (nativeStyles) => ({
+			...nativeStyles,
+			padding: 0,
+		}),
+
+		valueContainer: (nativeStyles) => ({
+			...nativeStyles,
+			padding: 2,
 		}),
 	};
 
