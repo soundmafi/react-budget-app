@@ -20,7 +20,7 @@ const ExpenseCard = ({ expenseName, expenseValue }: IExpenseCard) => {
 
 export default ExpenseCard;
 
-export const StyledExpenseCard = styled.div`
+export const StyledExpenseCard = styled.li`
 	padding: 14px 17px 14px 20px;
 	border-bottom: 2px solid #ccd5ff;
 	display: grid;

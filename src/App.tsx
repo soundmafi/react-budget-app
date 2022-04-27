@@ -11,7 +11,6 @@ const App = () => {
 		<StyledApp>
 			<StyledContainer>
 				<StyledHeader>
-					
 					<Title textTitle="Budget App" />
 					<CustomSelect />
 				</StyledHeader>
@@ -66,14 +65,13 @@ const StyledExpenseForm = styled.form`
 	grid-row-gap: 20px;
 `;
 
-const StyledExpensesContainer = styled.div`
+const StyledExpensesContainer = styled.ul`
 	width: 100%;
 	margin-top: 30px;
 	margin-bottom: 30px;
 `;
 
 const StyledHeader = styled.header`
-display: grid;
-grid-template-columns: 1fr 0.3fr;
-	
-`
+	display: grid;
+	grid-template-columns: 1fr 0.3fr;
+`;
