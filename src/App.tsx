@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import Title from './components/Title/Title';
 import BudgetCard from './components/BudgetCard/BudgetCard';
 import Input from './components/Input/Input';
-import Button from './components/Button/Button';
 import ExpenseCard from './components/ExpenseCard/ExpenseCard';
 import CustomSelect from './components/CurrencySelect/CurrencySelect';
+import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 
 const App = () => {
 	return (
@@ -30,11 +30,7 @@ const App = () => {
 				</StyledExpensesContainer>
 
 				<Title textTitle="Add Expense" />
-				<StyledExpenseForm>
-					<Input name={'expenseName'} placeholder={'enter name ...'} type="text" />
-					<Input name={'expenseCost'} placeholder={'enter cost ...'} type="number" />
-					<Button />
-				</StyledExpenseForm>
+				<ExpenseForm/>
 			</StyledContainer>
 		</StyledApp>
 	);
@@ -57,12 +53,6 @@ const StyledCardContainer = styled.div`
 	grid-template-rows: 1fr 1fr 1fr;
 	grid-row-gap: 20px;
 	margin-bottom: 30px;
-`;
-
-const StyledExpenseForm = styled.form`
-	width: 100%;
-	display: grid;
-	grid-row-gap: 20px;
 `;
 
 const StyledExpensesContainer = styled.ul`
