@@ -5,7 +5,7 @@ import ExpenseName from '../ExpenseName/ExpenseName';
 import { IExpense } from '../../contex/ExpensesContex/types';
 
 interface IExpenseCard {
-expense: IExpense
+	expense: IExpense;
 }
 
 const ExpenseCard = ({ cost, name }: IExpense) => {
@@ -21,8 +21,10 @@ const ExpenseCard = ({ cost, name }: IExpense) => {
 export default ExpenseCard;
 
 export const StyledExpenseCard = styled.li`
-	padding: 14px 17px 14px 20px;
-	border-bottom: 2px solid #ccd5ff;
 	display: grid;
 	grid-template-columns: 1.1fr 0.2fr 0.1fr;
+
+	padding: 14px 17px 14px 20px;
+	
+	border-bottom: 2px solid #ccd5ff;
 `;

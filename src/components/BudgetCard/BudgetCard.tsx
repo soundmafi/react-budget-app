@@ -19,10 +19,15 @@ const BudgetCard = ({ cardName, value }: IBudgetCard) => {
 export default BudgetCard;
 
 const StyledBudgetCard = styled.div<{ cardName: string }>`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
 	width: 100%;
 	height: 100px;
-	border-radius: 10px;
 	padding: 20px;
+
+	border-radius: 10px;
 	background-color: ${({ cardName }) =>
 		cardName === 'Budget'
 			? '#7cc6fe'
@@ -31,7 +36,4 @@ const StyledBudgetCard = styled.div<{ cardName: string }>`
 			: cardName === 'Spent so far'
 			? '#E7BBE3'
 			: '#FF0000'};
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
 `;

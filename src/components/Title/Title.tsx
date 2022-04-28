@@ -12,11 +12,11 @@ export default Title;
 
 const StyledTitle = styled.h2`
 	display: block;
-	font-family: 'Inter';
+
+	margin-bottom: 30px;
+
 	font-size: 24px;
 	font-weight: 700;
 	line-height: 29px;
-	letter-spacing: 0em;
 	text-align: left;
-	margin-bottom: 30px;
 `;

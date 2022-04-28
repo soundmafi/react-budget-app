@@ -14,6 +14,5 @@ export const StyledExpenseName = styled.p`
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 19.8px;
-	letter-spacing: 0em;
 	text-align: left;
 `;

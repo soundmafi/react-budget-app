@@ -15,9 +15,10 @@ const CustomSelect = () => {
 	const customStyles: StylesConfig<IOption> = {
 		control: (nativeStyles) => ({
 			...nativeStyles,
-			backgroundColor: '#ffffff',
 			height: 30,
 			minHeight: 30,
+
+			backgroundColor: '#ffffff',
 		}),
 
 		singleValue: (nativeStyles) => ({

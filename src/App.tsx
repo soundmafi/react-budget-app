@@ -37,23 +37,19 @@ export default App;
 const StyledApp = styled.div``;
 
 const StyledContainer = styled.div`
-	margin: 0 auto;
-	max-width: 375px;
 	width: 100%;
+	max-width: 375px;
+	margin: 0 auto;	
 	padding: 30px 20px;
+
 	background-color: #ffffff;
 `;
 
 const StyledCardContainer = styled.div`
 	display: grid;
-	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-rows: repeat(1fr);
 	grid-row-gap: 20px;
-	margin-bottom: 30px;
-`;
 
-const StyledExpensesContainer = styled.ul`
-	width: 100%;
-	margin-top: 30px;
 	margin-bottom: 30px;
 `;
 
