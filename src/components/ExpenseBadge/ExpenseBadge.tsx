@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 interface IBudge {
-	expenseValue: number;
+	cost: number;
 }
 
-const ExpenseBadge = ({ expenseValue }: IBudge) => {
-	return <StyledExpenseBadge>{expenseValue}</StyledExpenseBadge>;
+const ExpenseBadge = ({ cost }: IBudge) => {
+	return <StyledExpenseBadge>{cost}</StyledExpenseBadge>;
 };
 
 export default ExpenseBadge;

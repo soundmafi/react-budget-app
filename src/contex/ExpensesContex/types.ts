@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export interface IExpenseContextProviderProps{
-    expenseCard: ReactNode;
+    children: ReactNode;
 }
 
 export interface IExpenseContex{

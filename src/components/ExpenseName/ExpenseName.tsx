@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 interface IExpenseName {
-	expenseName: string;
+	name: string;
 }
 
-const ExpenseName = ({ expenseName }: IExpenseName) => {
-	return <StyledExpenseName>{expenseName}</StyledExpenseName>;
+const ExpenseName = ({ name }: IExpenseName) => {
+	return <StyledExpenseName>{name}</StyledExpenseName>;
 };
 
 export default ExpenseName;

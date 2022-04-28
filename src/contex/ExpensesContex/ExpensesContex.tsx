@@ -1,12 +1,23 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useContext } from 'react';
 import { IExpenseContex, IExpenseContextProviderProps, IExpense } from './types';
 
-export const ExpensesContext = createContext<IExpenseContex>({
-	expenses: [],
+const ExpensesContext = createContext<IExpenseContex>({
+	expenses: [
+		{
+			name: 'item1',
+			cost: 100,
+		},
+		{
+			name: 'Item2',
+			cost: 120,
+		},
+	],
 	setExpenses: (newExpenses: IExpense[]) => {},
 });
 
- const useExpensesContextValue = () => {
+export const useExpensesContex = () => useContext<IExpenseContex>(ExpensesContext)
+
+const useExpensesContextValue = () => {
 	const [expensesContext, setExpensesContext] = useState<IExpenseContex>(() => ({
 		expenses: [],
 		setExpenses: (newExpenses: IExpense[]) => {
@@ -16,10 +27,10 @@ export const ExpensesContext = createContext<IExpenseContex>({
 	return expensesContext;
 };
 
-export const ExpenseContextProvider = ({ expenseCard }: IExpenseContextProviderProps) => {
+export const ExpenseContextProvider = ({ children }: IExpenseContextProviderProps) => {
 	return (
 		<ExpensesContext.Provider value={useExpensesContextValue()}>
-			{expenseCard}
+			{children}
 		</ExpensesContext.Provider>
 	);
 };

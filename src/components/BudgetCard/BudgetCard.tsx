@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Color } from './../../types/index';
 import BudgetButton from '../BudgetButton/BudgetButton';
 import BudgetCardText from './../BudgetCardText/BudgetCardText';
 

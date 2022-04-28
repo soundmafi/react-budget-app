@@ -2,17 +2,17 @@ import styled from 'styled-components';
 import ExpenseButtonClose from './../ExpenseButtonClose/ExpenseButtonClose';
 import ExpenseBadge from '../ExpenseBadge/ExpenseBadge';
 import ExpenseName from '../ExpenseName/ExpenseName';
+import { IExpense } from '../../contex/ExpensesContex/types';
 
 interface IExpenseCard {
-	expenseName: string;
-	expenseValue: number;
+expense: IExpense
 }
 
-const ExpenseCard = ({ expenseName, expenseValue }: IExpenseCard) => {
+const ExpenseCard = ({ cost, name }: IExpense) => {
 	return (
 		<StyledExpenseCard>
-			<ExpenseName expenseName={expenseName} />
-			<ExpenseBadge expenseValue={expenseValue} />
+			<ExpenseName name={name} />
+			<ExpenseBadge cost={cost} />
 			<ExpenseButtonClose />
 		</StyledExpenseCard>
 	);

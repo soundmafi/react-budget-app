@@ -1,18 +1,24 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import styled from 'styled-components';
+import { useExpensesContex } from '../../contex/ExpensesContex/ExpensesContex';
 interface IExpense {
-	expenseName: string;
-	expenseCost: number;
+	name: string;
+	cost: number;
 }
 
+
 const ExpenseForm = () => {
+
+	const { expenses, setExpenses } = useExpensesContex();
 	const { register, handleSubmit, reset } = useForm<IExpense>();
 
 	const onSubmit: SubmitHandler<IExpense> = (expense: IExpense) => {
-		if (!!expense.expenseCost) {
+		
+		if (!expense.cost) {
 			console.log('Только цифры');
-		} else {
-			console.log(expense);
+		} else {	
+			expenses.push(expense)
+			setExpenses(expenses);
 			reset();
 		}
 	};
@@ -21,7 +27,7 @@ const ExpenseForm = () => {
 		<StyledExpenseForm onSubmit={handleSubmit(onSubmit)}>
 			<StyledInput
 				placeholder="Enter name ..."
-				{...register('expenseName', {
+				{...register('name', {
 					required: true,
 					maxLength: 15,
 					valueAsNumber: false,
@@ -30,7 +36,7 @@ const ExpenseForm = () => {
 			/>
 			<StyledInput
 				placeholder="Enter cost ..."
-				{...register('expenseCost', {
+				{...register('cost', {
 					required: true,
 					maxLength: 5,
 					valueAsNumber: true,
