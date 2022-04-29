@@ -1,20 +1,15 @@
 import styled from 'styled-components';
-import {
-	ExpenseContextProvider,
-	useExpensesContex,
-} from '../../contex/ExpensesContex/ExpensesContex';
+import { useExpensesContex } from '../../contex/ExpensesContex/ExpensesContex';
 import ExpenseCard from '../ExpenseCard/ExpenseCard';
 
 const ExpensesList = () => {
-	const { expenses} = useExpensesContex();
+	const { expenses } = useExpensesContex();
 	return (
-		<ExpenseContextProvider>
-			<StyledExpensesList>
-				{expenses.map((expense) => {
-					return <ExpenseCard name={expense.name} cost={expense.cost} id={expense.id} />;
-				})}
-			</StyledExpensesList>
-		</ExpenseContextProvider>
+		<StyledExpensesList>
+			{expenses.map((expense) => {
+				return <ExpenseCard name={expense.name} cost={expense.cost} id={expense.id} />;
+			})}
+		</StyledExpensesList>
 	);
 };
 

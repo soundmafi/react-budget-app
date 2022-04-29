@@ -5,10 +5,12 @@ import Input from './components/Input/Input';
 import CustomSelect from './components/CurrencySelect/CurrencySelect';
 import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 import ExpensesList from './components/ExpensesList/ExpensesList';
+import { ExpenseContextProvider } from './contex/ExpensesContex/ExpensesContex';
 
 const App = () => {
 	return (
 		<StyledApp>
+			<ExpenseContextProvider>
 			<StyledContainer>
 				<StyledHeader>
 					<Title textTitle="Budget App" />
@@ -28,6 +30,7 @@ const App = () => {
 				<Title textTitle="Add Expense" />
 				<ExpenseForm />
 			</StyledContainer>
+			</ExpenseContextProvider>
 		</StyledApp>
 	);
 };

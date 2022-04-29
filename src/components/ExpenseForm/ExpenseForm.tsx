@@ -11,15 +11,13 @@ const ExpenseForm = () => {
 
 	const onSubmit: SubmitHandler<IExpense> = (expense: IExpense) => {
 			
-		
 		if (!expense.cost) {
 			console.log('Только цифры');
 		} else {	
 			expense.id = uuidv4();
 			expenses.push(expense)
 			setExpenses(expenses);
-			reset();
-			console.log(expenses);			
+			reset();		
 		}
 	};
 

@@ -1,10 +1,3 @@
-export const enum Color {
-	budget = '#7CC6FE',
-	remaining = '#CCD5FF',
-	spent = '#E7BBE3',
-	overspending = '#FF0000',
-}
-
 export interface IExpense {
 	id: string;
 	name: string;
