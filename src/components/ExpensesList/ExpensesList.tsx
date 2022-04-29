@@ -7,7 +7,7 @@ const ExpensesList = () => {
 	return (
 		<StyledExpensesList>
 			{expenses.map((expense) => {
-				return <ExpenseCard name={expense.name} cost={expense.cost} id={expense.id} />;
+				return <ExpenseCard name={expense.name} cost={expense.cost} id={expense.id} key={expense.id}/>;
 			})}
 		</StyledExpensesList>
 	);

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ExpenseButtonClose from './../ExpenseButtonClose/ExpenseButtonClose';
+import ExpenseButtonClose from '../ExpenseButtonDelete/ExpenseButtonDelete';
 import ExpenseBadge from '../ExpenseBadge/ExpenseBadge';
 import ExpenseName from '../ExpenseName/ExpenseName';
 import { IExpense } from '../../contex/ExpensesContex/types';
@@ -7,10 +7,10 @@ import { IExpense } from '../../contex/ExpensesContex/types';
 
 const ExpenseCard = ({ cost, name, id }: IExpense) => {
 	return (
-		<StyledExpenseCard id={id}>
+		<StyledExpenseCard>
 			<ExpenseName name={name} />
 			<ExpenseBadge cost={cost} />
-			<ExpenseButtonClose />
+			<ExpenseButtonClose id = {id}/>
 		</StyledExpenseCard>
 	);
 };
