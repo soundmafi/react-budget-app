@@ -4,15 +4,9 @@ import {
 	useExpensesContex,
 } from '../../contex/ExpensesContex/ExpensesContex';
 import ExpenseCard from '../ExpenseCard/ExpenseCard';
-import { v4 as uuidv4 } from 'uuid';
 
 const ExpensesList = () => {
-	const { expenses, setExpenses } = useExpensesContex();
-	const add = () => {
-		expenses.push({ name: 'fd', cost: 10, id: uuidv4() });
-		setExpenses(expenses);
-		console.log();
-	};
+	const { expenses} = useExpensesContex();
 	return (
 		<ExpenseContextProvider>
 			<StyledExpensesList>
