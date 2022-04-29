@@ -1,15 +1,18 @@
 import { createContext, useState, useContext } from 'react';
 import { IExpenseContex, IExpenseContextProviderProps, IExpense } from './types';
+import { v4 as uuidv4 } from 'uuid';
 
 const ExpensesContext = createContext<IExpenseContex>({
 	expenses: [
 		{
 			name: 'item1',
 			cost: 100,
+			id: uuidv4()
 		},
 		{
 			name: 'Item2',
 			cost: 120,
+			id: uuidv4()
 		},
 	],
 	setExpenses: (newExpenses: IExpense[]) => {},

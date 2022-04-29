@@ -4,14 +4,20 @@ import {
 	useExpensesContex,
 } from '../../contex/ExpensesContex/ExpensesContex';
 import ExpenseCard from '../ExpenseCard/ExpenseCard';
+import { v4 as uuidv4 } from 'uuid';
 
 const ExpensesList = () => {
-	const { expenses } = useExpensesContex();
+	const { expenses, setExpenses } = useExpensesContex();
+	const add = () => {
+		expenses.push({ name: 'fd', cost: 10, id: uuidv4() });
+		setExpenses(expenses);
+		console.log();
+	};
 	return (
 		<ExpenseContextProvider>
 			<StyledExpensesList>
 				{expenses.map((expense) => {
-					return <ExpenseCard name={expense.name} cost={expense.cost} />;
+					return <ExpenseCard name={expense.name} cost={expense.cost} id={expense.id} />;
 				})}
 			</StyledExpensesList>
 		</ExpenseContextProvider>

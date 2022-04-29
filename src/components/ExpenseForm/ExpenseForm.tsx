@@ -1,11 +1,8 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import styled from 'styled-components';
-import { useExpensesContex } from '../../contex/ExpensesContex/ExpensesContex';
-interface IExpense {
-	name: string;
-	cost: number;
-}
-
+import { ExpenseContextProvider, useExpensesContex } from '../../contex/ExpensesContex/ExpensesContex';
+import { IExpense } from '../../types';
+import { v4 as uuidv4 } from 'uuid';
 
 const ExpenseForm = () => {
 
@@ -13,17 +10,20 @@ const ExpenseForm = () => {
 	const { register, handleSubmit, reset } = useForm<IExpense>();
 
 	const onSubmit: SubmitHandler<IExpense> = (expense: IExpense) => {
+			
 		
 		if (!expense.cost) {
 			console.log('Только цифры');
 		} else {	
+			expense.id = uuidv4();
 			expenses.push(expense)
 			setExpenses(expenses);
 			reset();
+			console.log(expenses);			
 		}
 	};
 
-	return (
+	return (		
 		<StyledExpenseForm onSubmit={handleSubmit(onSubmit)}>
 			<StyledInput
 				placeholder="Enter name ..."
@@ -43,8 +43,8 @@ const ExpenseForm = () => {
 					pattern: /^[0-9]+$/,
 				})}
 			/>
-			<StyledButton type="submit">Done</StyledButton>
-		</StyledExpenseForm>
+			<StyledButton type="submit">Done</StyledButton>		
+		</StyledExpenseForm>		
 	);
 };
 

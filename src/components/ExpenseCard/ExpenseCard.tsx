@@ -4,13 +4,10 @@ import ExpenseBadge from '../ExpenseBadge/ExpenseBadge';
 import ExpenseName from '../ExpenseName/ExpenseName';
 import { IExpense } from '../../contex/ExpensesContex/types';
 
-interface IExpenseCard {
-	expense: IExpense;
-}
 
-const ExpenseCard = ({ cost, name }: IExpense) => {
+const ExpenseCard = ({ cost, name, id }: IExpense) => {
 	return (
-		<StyledExpenseCard>
+		<StyledExpenseCard id={id}>
 			<ExpenseName name={name} />
 			<ExpenseBadge cost={cost} />
 			<ExpenseButtonClose />
