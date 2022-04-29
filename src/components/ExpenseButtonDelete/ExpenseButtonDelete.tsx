@@ -21,5 +21,4 @@ export const StyledExpenseButtonClose = styled.button`
 	margin-left: 15px;
 	
 	border: 1px solid #000000;
-	
 `;

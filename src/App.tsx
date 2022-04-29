@@ -6,7 +6,6 @@ import CustomSelect from './components/CurrencySelect/CurrencySelect';
 import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 import ExpensesList from './components/ExpensesList/ExpensesList';
 import { ExpenseContextProvider } from './contex/ExpensesContex/ExpensesContex';
-
 const App = () => {
 	return (
 		<StyledApp>
