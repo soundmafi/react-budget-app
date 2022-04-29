@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-interface ICardButton {
-	typeButton: string;
+interface IBudgetButton {
+	hadleClickEdit: (e: React.MouseEvent<HTMLButtonElement>) =>void;
 }
 
-const CardButtonEdit = ({typeButton}:ICardButton) => {
-	return <StyledButton>{typeButton}</StyledButton>;
+const CardButtonEdit = ({hadleClickEdit}: IBudgetButton) => {
+
+	return <StyledButton onClick={hadleClickEdit}>Edit</StyledButton>;
 };
 
 export default CardButtonEdit;

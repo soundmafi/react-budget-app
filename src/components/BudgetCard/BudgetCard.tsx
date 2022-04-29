@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import styled from 'styled-components';
-import BudgetButton from '../BudgetButton/BudgetButton';
+import BudgetButtonEdit from '../BudgetButtonEdit/BudgetButtonEdit';
+import BudgetButtonSave from '../BudgetButtonSave/BudgetButtonSave';
+import BudgetInput from '../BudgetInput/BudgetInput';
 import BudgetCardText from './../BudgetCardText/BudgetCardText';
 
 interface IBudgetCard {
@@ -8,10 +11,21 @@ interface IBudgetCard {
 }
 
 const BudgetCard = ({ cardName, value }: IBudgetCard) => {
+	const [stateButton, setStateButton] = useState(true);
+	const hadleClickEdit = () =>{
+		setStateButton(false);
+	}
+	const hadleClickSave = () =>{
+		setStateButton(true);
+	}
+
+
 	return (
 		<StyledBudgetCard aria-label={cardName} cardName={cardName}>
-			<BudgetCardText cardName={cardName} value={value} />
-			{cardName === 'Budget' && <BudgetButton typeButton={'Edit'} />}
+			{stateButton? <BudgetCardText cardName={cardName} value={value} />: <BudgetInput/>}
+			
+			{/* {cardName === 'Budget' && <BudgetButton typeButton={'Edit'} />} */}
+			{stateButton ? <BudgetButtonEdit hadleClickEdit= {hadleClickEdit}/> : <BudgetButtonSave hadleClickSave= {hadleClickSave}/>}
 		</StyledBudgetCard>
 	);
 };
