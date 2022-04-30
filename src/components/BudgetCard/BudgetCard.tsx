@@ -1,9 +1,10 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import BudgetButtonEdit from '../BudgetButtonEdit/BudgetButtonEdit';
 import BudgetButtonSave from '../BudgetButtonSave/BudgetButtonSave';
 import BudgetInput from '../BudgetInput/BudgetInput';
 import BudgetCardText from './../BudgetCardText/BudgetCardText';
+import { useContext, useState } from 'react';
+import { BudgetContext } from '../../contex/BudgetContex/BudgetContext';
 
 interface IBudgetCard {
 	cardName: string;
@@ -11,21 +12,36 @@ interface IBudgetCard {
 }
 
 const BudgetCard = ({ cardName, value }: IBudgetCard) => {
+	const { budget, setBudget } = useContext(BudgetContext);
 	const [stateButton, setStateButton] = useState(true);
-	const hadleClickEdit = () =>{
+	const hadleClickEdit = () => {
 		setStateButton(false);
-	}
-	const hadleClickSave = () =>{
+	};
+	const hadleClickSave = () => {
 		setStateButton(true);
-	}
+	};
 
+	const handleGetBudget = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setBudget(+e.target.value);
+	};
 
 	return (
 		<StyledBudgetCard aria-label={cardName} cardName={cardName}>
-			{stateButton? <BudgetCardText cardName={cardName} value={value} />: <BudgetInput/>}
-			
 			{/* {cardName === 'Budget' && <BudgetButton typeButton={'Edit'} />} */}
-			{stateButton ? <BudgetButtonEdit hadleClickEdit= {hadleClickEdit}/> : <BudgetButtonSave hadleClickSave= {hadleClickSave}/>}
+			{stateButton ? (
+				<BudgetCardText cardName={cardName} value={budget} />
+			) : (
+				<BudgetInput
+					cardName={cardName}
+					handleGetBudget={handleGetBudget}
+					budget={budget}
+				/>
+			)}
+			{stateButton ? (
+				<BudgetButtonEdit hadleClickEdit={hadleClickEdit} />
+			) : (
+				<BudgetButtonSave hadleClickSave={hadleClickSave} />
+			)}
 		</StyledBudgetCard>
 	);
 };

@@ -1,7 +1,9 @@
-import { createRoot } from 'react-dom/client';
-import App from './App';
-import { GlobalStyles } from './GlobalStyles';
 import React from 'react';
+import App from './App';
+import { createRoot } from 'react-dom/client';
+import { GlobalStyles } from './GlobalStyles';
+import { ExpenseContextProvider } from './contex/ExpensesContex/ExpensesContex';
+import { BudgetContextProvider } from './contex/BudgetContex/BudgetContext';
 
 const container = document.getElementById('root');
 if (!container) {
@@ -11,7 +13,11 @@ if (!container) {
 const root = createRoot(container);
 root.render(
 	<React.StrictMode>
-	  <GlobalStyles />
-	  <App />
+		<BudgetContextProvider>
+			<ExpenseContextProvider>
+				<GlobalStyles />
+				<App />
+			</ExpenseContextProvider>
+		</BudgetContextProvider>
 	</React.StrictMode>
-  );
+);
