@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { GlobalStyles } from './GlobalStyles';
 import { ExpenseContextProvider } from './contex/ExpensesContex/ExpensesContex';
 import { BudgetContextProvider } from './contex/BudgetContex/BudgetContext';
+import { CurrencyContextProvider } from './contex/CurrenciesContex/CurrenciesContex';
 
 const container = document.getElementById('root');
 if (!container) {
@@ -14,10 +15,12 @@ const root = createRoot(container);
 root.render(
 	<React.StrictMode>
 		<BudgetContextProvider>
-			<ExpenseContextProvider>
-				<GlobalStyles />
-				<App />
-			</ExpenseContextProvider>
+			<CurrencyContextProvider>
+				<ExpenseContextProvider>
+					<GlobalStyles />
+					<App />
+				</ExpenseContextProvider>
+			</CurrencyContextProvider>
 		</BudgetContextProvider>
 	</React.StrictMode>
 );
