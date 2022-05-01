@@ -2,7 +2,7 @@ import { createContext, useState, useContext } from 'react';
 import { IExpenseContex, IExpenseContextProviderProps, IExpense } from './types';
 import { v4 as uuidv4 } from 'uuid';
 
-const ExpensesContext = createContext<IExpenseContex>({
+export const ExpensesContext = createContext<IExpenseContex>({
 	expenses: [
 		{
 			name: 'item1',

@@ -12,16 +12,18 @@ import { Currency } from './types';
 const App = () => {
 	const { setCurrency } = useContext(CurrencyContext);
 	const handleSelect = (option: IOption | null): void => {
-
 		if (option) {
-				let symbol =''
-			switch (option.value){
-				case 'USD': symbol = Currency.USD;
-				break
-				case 'EUR': symbol = Currency.EUR;
-				break
-				case 'GBR': symbol = Currency.GBR;
-				break
+			let symbol = '';
+			switch (option.value) {
+				case 'USD':
+					symbol = Currency.USD;
+					break;
+				case 'EUR':
+					symbol = Currency.EUR;
+					break;
+				case 'GBR':
+					symbol = Currency.GBR;
+					break;
 			}
 			setCurrency(symbol);
 		}
@@ -35,11 +37,10 @@ const App = () => {
 					<CustomSelect handleSelect={handleSelect} />
 				</StyledHeader>
 				<StyledCardContainer>
-					<BudgetCard cardName="Budget" value={3000} />
-					<BudgetCard cardName="Remaining" value={2000} />
-					<BudgetCard cardName="Spent so far" value={1000} />
+					<BudgetCard cardName="Budget" />
+					<BudgetCard cardName="Remaining" />
+					<BudgetCard cardName="Spent so far" />
 				</StyledCardContainer>
-
 				<Title textTitle="Expenses" />
 				<Input name={'search'} placeholder={'search ...'} type="text" />
 				<ExpensesList />

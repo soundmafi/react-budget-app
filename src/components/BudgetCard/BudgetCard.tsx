@@ -6,17 +6,18 @@ import BudgetCardText from './../BudgetCardText/BudgetCardText';
 import { useContext, useState } from 'react';
 import { BudgetContext } from '../../contex/BudgetContex/BudgetContext';
 import { CurrencyContext } from '../../contex/CurrenciesContex/CurrenciesContex';
+import { ExpensesContext } from '../../contex/ExpensesContex/ExpensesContex';
 
 interface IBudgetCard {
 	cardName: string;
-	value: number;
 }
 
-const BudgetCard = ({ cardName, value }: IBudgetCard) => {
+const BudgetCard = ({ cardName}: IBudgetCard) => {
 	const { budget, setBudget } = useContext(BudgetContext);
-	const {currency} = useContext(CurrencyContext)
+	const { currency } = useContext(CurrencyContext);
+	const { expenses } = useContext(ExpensesContext);
 	const [stateButton, setStateButton] = useState(true);
-	
+
 	const hadleClickEdit = () => {
 		setStateButton(false);
 	};

@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 import ExpenseButtonClose from '../ExpenseButtonDelete/ExpenseButtonDelete';
 import { IExpense } from '../../contex/ExpensesContex/types';
+import { CurrencyContext } from '../../contex/CurrenciesContex/CurrenciesContex';
+import { useContext } from 'react';
+
 
 
 const ExpenseCard = ({ cost, name, id }: IExpense) => {
+	const { currency } = useContext(CurrencyContext);
 	return (
 		<StyledExpenseCard>
 			<StyledExpenseName>{name}</StyledExpenseName>
-			<StyledExpenseBadge>{cost}</StyledExpenseBadge>
+			<StyledExpenseBadge>{currency}{cost}</StyledExpenseBadge>
 			<ExpenseButtonClose id = {id}/>
 		</StyledExpenseCard>
 	);
