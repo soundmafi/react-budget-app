@@ -29,6 +29,11 @@ const BudgetCard = ({ cardName}: IBudgetCard) => {
 		setBudget(+e.target.value);
 	};
 
+	const spent = expenses.reduce((sumExpenses, expense) => sumExpenses + expense.cost, 0);
+	const remaining = budget - spent;
+	console.log(spent);
+	console.log(remaining);
+
 	return (
 		<StyledBudgetCard aria-label={cardName} cardName={cardName}>
 			{/* {cardName === 'Budget' && <BudgetButton typeButton={'Edit'} />} */}
