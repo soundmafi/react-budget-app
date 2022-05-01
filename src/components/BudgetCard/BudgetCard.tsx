@@ -5,6 +5,7 @@ import BudgetInput from '../BudgetInput/BudgetInput';
 import BudgetCardText from './../BudgetCardText/BudgetCardText';
 import { useContext, useState } from 'react';
 import { BudgetContext } from '../../contex/BudgetContex/BudgetContext';
+import { CurrencyContext } from '../../contex/CurrenciesContex/CurrenciesContex';
 
 interface IBudgetCard {
 	cardName: string;
@@ -13,7 +14,9 @@ interface IBudgetCard {
 
 const BudgetCard = ({ cardName, value }: IBudgetCard) => {
 	const { budget, setBudget } = useContext(BudgetContext);
+	const {currency} = useContext(CurrencyContext)
 	const [stateButton, setStateButton] = useState(true);
+	
 	const hadleClickEdit = () => {
 		setStateButton(false);
 	};
@@ -29,7 +32,7 @@ const BudgetCard = ({ cardName, value }: IBudgetCard) => {
 		<StyledBudgetCard aria-label={cardName} cardName={cardName}>
 			{/* {cardName === 'Budget' && <BudgetButton typeButton={'Edit'} />} */}
 			{stateButton ? (
-				<BudgetCardText cardName={cardName} value={budget} />
+				<BudgetCardText cardName={cardName} currency={currency} value={budget} />
 			) : (
 				<BudgetInput
 					cardName={cardName}

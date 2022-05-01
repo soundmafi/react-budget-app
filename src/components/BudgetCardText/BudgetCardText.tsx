@@ -3,12 +3,14 @@ import styled from 'styled-components';
 interface IBudgetCardText {
 	cardName: string;
 	value: number;
+	currency: string;
 }
 
-const BudgetCardText = ({ cardName, value }: IBudgetCardText) => {
+const BudgetCardText = ({ cardName, value, currency }: IBudgetCardText) => {
+
 	return (
 		<StyledBudgetCardText>
-			{cardName}: ${value}
+			{cardName}: {currency} {value}
 		</StyledBudgetCardText>
 	);
 };

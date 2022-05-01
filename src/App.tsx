@@ -5,30 +5,47 @@ import Input from './components/Input/Input';
 import CustomSelect from './components/CurrencySelect/CurrencySelect';
 import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 import ExpensesList from './components/ExpensesList/ExpensesList';
+import { IOption } from './components/CurrencySelect/CurrencySelect';
+import { CurrencyContext } from './contex/CurrenciesContex/CurrenciesContex';
+import { useContext } from 'react';
+import { Currency } from './types';
 const App = () => {
+	const { setCurrency } = useContext(CurrencyContext);
+	const handleSelect = (option: IOption | null): void => {
+
+		if (option) {
+				let symbol =''
+			switch (option.value){
+				case 'USD': symbol = Currency.USD;
+				break
+				case 'EUR': symbol = Currency.EUR;
+				break
+				case 'GBR': symbol = Currency.GBR;
+				break
+			}
+			setCurrency(symbol);
+		}
+	};
+
 	return (
 		<StyledApp>
+			<StyledContainer>
+				<StyledHeader>
+					<Title textTitle="Budget App" />
+					<CustomSelect handleSelect={handleSelect} />
+				</StyledHeader>
+				<StyledCardContainer>
+					<BudgetCard cardName="Budget" value={3000} />
+					<BudgetCard cardName="Remaining" value={2000} />
+					<BudgetCard cardName="Spent so far" value={1000} />
+				</StyledCardContainer>
 
-					<StyledContainer>
-						<StyledHeader>
-							<Title textTitle="Budget App" />
-							<CustomSelect />
-						</StyledHeader>
-						<StyledCardContainer>
-							<BudgetCard cardName="Budget" value={3000} />
-							<BudgetCard cardName="Remaining" value={2000} />
-							<BudgetCard cardName="Spent so far" value={1000} />
-						</StyledCardContainer>
-
-						<Title textTitle="Expenses" />
-						<Input name={'search'} placeholder={'search ...'} type="text" />
-
-						<ExpensesList />
-
-						<Title textTitle="Add Expense" />
-						<ExpenseForm />
-					</StyledContainer>
-
+				<Title textTitle="Expenses" />
+				<Input name={'search'} placeholder={'search ...'} type="text" />
+				<ExpensesList />
+				<Title textTitle="Add Expense" />
+				<ExpenseForm />
+			</StyledContainer>
 		</StyledApp>
 	);
 };

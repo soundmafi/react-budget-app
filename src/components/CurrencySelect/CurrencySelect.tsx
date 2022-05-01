@@ -1,11 +1,16 @@
 import Select, { StylesConfig } from 'react-select';
 
-interface IOption {
+
+export interface IOption {
 	value: string;
 	label: string;
 }
 
-const CustomSelect = () => {
+interface ISelect {
+	handleSelect: (option: IOption | null) => void;
+}
+
+const CustomSelect = ({handleSelect}:ISelect) => {
 	const options: IOption[] = [
 		{ value: 'USD', label: 'USD' },
 		{ value: 'EUR', label: 'EUR' },
@@ -42,7 +47,13 @@ const CustomSelect = () => {
 	};
 
 	return (
-		<Select styles={customStyles} options={options} defaultValue={options[0]} isMulti={false} />
+		<Select
+			onChange={handleSelect}
+			styles={customStyles}
+			options={options}
+			defaultValue={options[0]}
+			isMulti={false}
+		/>
 	);
 };
 
