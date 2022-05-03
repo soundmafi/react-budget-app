@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Title from './components/Title/Title';
-import BudgetCard from './components/BudgetCard/BudgetCard';
 import Input from './components/Input/Input';
 import CustomSelect from './components/CurrencySelect/CurrencySelect';
 import ExpenseForm from './components/ExpenseForm/ExpenseForm';
@@ -11,7 +10,12 @@ import { CurrencyContext } from './contex/CurrenciesContex/CurrenciesContex';
 import { useContext, useEffect, useState } from 'react';
 import { Currency } from './types';
 import { useExpensesContex } from './contex/ExpensesContex/ExpensesContex';
+import { BudgetContext } from './contex/BudgetContex/BudgetContext';
+import BudgetInput from './components/BudgetInput/BudgetInput';
+import BudgetButtonEdit from './components/BudgetButtonEdit/BudgetButtonEdit';
+import BudgetButtonSave from './components/BudgetButtonSave/BudgetButtonSave';
 const App = () => {
+	
 	// set currency
 	const { setCurrency } = useContext(CurrencyContext);
 	const handleSelect = (option: IOption | null): void => {
@@ -36,20 +40,40 @@ const App = () => {
 	const { expenses } = useExpensesContex();
 	const [searchExpense, setSearchExpense] = useState<string>('');
 	const [resultExpenses, setResultExpenses] = useState<IExpense[]>([]);
-	
+
 	const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchExpense(e.target.value);
 	};
-	 
+
 	useEffect(() => {
-		const result = expenses.slice(0)
-		setResultExpenses(result);		
+		const result = expenses.slice(0);
+		setResultExpenses(result);
 		return setResultExpenses(
 			result.filter((expense) =>
 				expense.name.toLowerCase().includes(searchExpense.toLowerCase())
 			)
 		);
-	}, [searchExpense, expenses]);	
+	}, [searchExpense, expenses]);
+
+	// budget algorythm
+	const { budget, setBudget } = useContext(BudgetContext);
+	const { currency } = useContext(CurrencyContext);
+	const [stateButton, setStateButton] = useState(true);
+
+	const hadleClickEdit = () => {
+		setStateButton(false);
+	};
+
+	const hadleClickSave = () => {
+		setStateButton(true);
+	};
+
+	const handleGetBudget = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setBudget(+e.target.value);
+	};
+
+	const spent = expenses.reduce((sumExpenses, expense) => sumExpenses + expense.cost, 0);
+	const remaining = budget - spent;
 
 	return (
 		<StyledApp>
@@ -59,15 +83,46 @@ const App = () => {
 					<CustomSelect handleSelect={handleSelect} />
 				</StyledHeader>
 				<StyledCardContainer>
-					<BudgetCard cardName="Budget" />
-					<BudgetCard cardName="Remaining" />
-					<BudgetCard cardName="Spent so far" />
+					<StyledBudgetCard cardName="Budget">
+						{stateButton ? (
+							<StyledBudgetCardText>
+								Budget: {currency} {budget}
+							</StyledBudgetCardText>
+						) : (
+							<BudgetInput
+								cardName="Budget"
+								handleGetBudget={handleGetBudget}
+								budget={budget}
+							/>
+						)}
+						{stateButton ? (
+							<BudgetButtonEdit hadleClickEdit={hadleClickEdit} />
+						) : (
+							<BudgetButtonSave hadleClickSave={hadleClickSave} />
+						)}
+					</StyledBudgetCard>
+					{remaining >= 0 ? (
+						<StyledBudgetCard cardName="Remaining">
+							<StyledBudgetCardText>
+								Remaining: {currency} {remaining}
+							</StyledBudgetCardText>
+						</StyledBudgetCard>
+					) : (
+						<StyledBudgetCard cardName="Overspending by">
+							<StyledBudgetCardText>
+								Overspending by: {currency} {-remaining}
+							</StyledBudgetCardText>
+						</StyledBudgetCard>
+					)}
+
+					<StyledBudgetCard cardName="Spent">
+						<StyledBudgetCardText>
+							Spent so far: {currency} {spent}
+						</StyledBudgetCardText>
+					</StyledBudgetCard>
 				</StyledCardContainer>
 				<Title textTitle="Expenses" />
-				<Input
-					searchExpense={searchExpense}
-					handleSearch={handleSearch}
-				/>
+				<Input searchExpense={searchExpense} handleSearch={handleSearch} />
 				<ExpensesList resultExpenses={resultExpenses} />
 				<Title textTitle="Add Expense" />
 				<ExpenseForm />
@@ -100,4 +155,30 @@ const StyledCardContainer = styled.div`
 const StyledHeader = styled.header`
 	display: grid;
 	grid-template-columns: 1fr 0.3fr;
+`;
+
+const StyledBudgetCard = styled.div<{ cardName: string }>`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+	height: 100px;
+	padding: 20px;
+
+	border-radius: 10px;
+	background-color: ${({ cardName }) =>
+		cardName === 'Budget'
+			? '#7cc6fe'
+			: cardName === 'Remaining'
+			? '#CCD5FF'
+			: cardName === 'Spent'
+			? '#E7BBE3'
+			: '#FF0000'};
+`;
+
+const StyledBudgetCardText = styled.p`
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
 `;
