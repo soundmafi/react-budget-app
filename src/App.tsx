@@ -6,10 +6,13 @@ import CustomSelect from './components/CurrencySelect/CurrencySelect';
 import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 import ExpensesList from './components/ExpensesList/ExpensesList';
 import { IOption } from './components/CurrencySelect/CurrencySelect';
+import { IExpense } from './types';
 import { CurrencyContext } from './contex/CurrenciesContex/CurrenciesContex';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Currency } from './types';
+import { useExpensesContex } from './contex/ExpensesContex/ExpensesContex';
 const App = () => {
+	// set currency
 	const { setCurrency } = useContext(CurrencyContext);
 	const handleSelect = (option: IOption | null): void => {
 		if (option) {
@@ -29,6 +32,25 @@ const App = () => {
 		}
 	};
 
+	// search algorythm
+	const { expenses } = useExpensesContex();
+	const [searchExpense, setSearchExpense] = useState<string>('');
+	const [resultExpenses, setResultExpenses] = useState<IExpense[]>([]);
+	
+	const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setSearchExpense(e.target.value);
+	};
+	 
+	useEffect(() => {
+		const result = expenses.slice(0)
+		setResultExpenses(result);		
+		return setResultExpenses(
+			result.filter((expense) =>
+				expense.name.toLowerCase().includes(searchExpense.toLowerCase())
+			)
+		);
+	}, [searchExpense, expenses]);	
+
 	return (
 		<StyledApp>
 			<StyledContainer>
@@ -42,8 +64,11 @@ const App = () => {
 					<BudgetCard cardName="Spent so far" />
 				</StyledCardContainer>
 				<Title textTitle="Expenses" />
-				<Input name={'search'} placeholder={'search ...'} type="text" />
-				<ExpensesList />
+				<Input
+					searchExpense={searchExpense}
+					handleSearch={handleSearch}
+				/>
+				<ExpensesList resultExpenses={resultExpenses} />
 				<Title textTitle="Add Expense" />
 				<ExpenseForm />
 			</StyledContainer>

@@ -1,6 +1,6 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import styled from 'styled-components';
-import { ExpenseContextProvider, useExpensesContex } from '../../contex/ExpensesContex/ExpensesContex';
+import { useExpensesContex } from '../../contex/ExpensesContex/ExpensesContex';
 import { IExpense } from '../../types';
 import { v4 as uuidv4 } from 'uuid';
 

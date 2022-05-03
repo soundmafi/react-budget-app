@@ -6,7 +6,8 @@ import BudgetCardText from './../BudgetCardText/BudgetCardText';
 import { useContext, useState } from 'react';
 import { BudgetContext } from '../../contex/BudgetContex/BudgetContext';
 import { CurrencyContext } from '../../contex/CurrenciesContex/CurrenciesContex';
-import { ExpensesContext } from '../../contex/ExpensesContex/ExpensesContex';
+import { useExpensesContex } from '../../contex/ExpensesContex/ExpensesContex';
+import { IExpense } from '../../types';
 
 interface IBudgetCard {
 	cardName: string;
@@ -15,7 +16,7 @@ interface IBudgetCard {
 const BudgetCard = ({ cardName}: IBudgetCard) => {
 	const { budget, setBudget } = useContext(BudgetContext);
 	const { currency } = useContext(CurrencyContext);
-	const { expenses } = useContext(ExpensesContext);
+	const { expenses } = useExpensesContex();
 	const [stateButton, setStateButton] = useState(true);
 
 	const hadleClickEdit = () => {
@@ -29,10 +30,10 @@ const BudgetCard = ({ cardName}: IBudgetCard) => {
 		setBudget(+e.target.value);
 	};
 
-	const spent = expenses.reduce((sumExpenses, expense) => sumExpenses + expense.cost, 0);
+	const spent = expenses.reduce((sumExpenses:number, expense: IExpense) => sumExpenses + expense.cost, 0);
 	const remaining = budget - spent;
-	console.log(spent);
-	console.log(remaining);
+	// console.log(spent);
+	// console.log(remaining);
 
 	return (
 		<StyledBudgetCard aria-label={cardName} cardName={cardName}>

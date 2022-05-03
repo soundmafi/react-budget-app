@@ -1,13 +1,22 @@
 import styled from 'styled-components';
 
 interface IInput {
-	name: string;
-	placeholder: string;
-	type:string
+	handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	searchExpense: string;
 }
 
-const Input = ({ name, placeholder,type }: IInput) => {
-	return <StyledInput name={name} placeholder={placeholder} type={type}/>;
+const Input = ({searchExpense, handleSearch }: IInput) => {
+	return (
+		<label htmlFor="search">
+		<StyledInput
+			name={'search'}
+			placeholder='search ...'
+			type="text"
+			value={searchExpense}
+			onChange={handleSearch}
+		/>
+		</label>
+	);
 };
 
 export default Input;
