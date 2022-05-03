@@ -2,15 +2,22 @@ import styled from 'styled-components';
 import { IExpense } from '../../contex/ExpensesContex/types';
 import ExpenseCard from '../ExpenseCard/ExpenseCard';
 
-interface IList{
-	resultExpenses: IExpense[]
+interface IList {
+	resultExpenses: IExpense[];
 }
 
-const ExpensesList = ({resultExpenses}:IList) => {
+const ExpensesList = ({ resultExpenses }: IList) => {
 	return (
 		<StyledExpensesList>
 			{resultExpenses.map((expense) => {
-				return <ExpenseCard name={expense.name} cost={expense.cost} id={expense.id} key={expense.id}/>;
+				return (
+					<ExpenseCard
+						name={expense.name}
+						cost={expense.cost}
+						id={expense.id}
+						key={expense.id}
+					/>
+				);
 			})}
 		</StyledExpensesList>
 	);

@@ -1,5 +1,5 @@
 import Select, { StylesConfig } from 'react-select';
-
+import { Currency } from '../config/Currency';
 
 export interface IOption {
 	value: string;
@@ -10,18 +10,17 @@ interface ISelect {
 	handleSelect: (option: IOption | null) => void;
 }
 
-const CustomSelect = ({handleSelect}:ISelect) => {
+const CustomSelect = ({ handleSelect }: ISelect) => {
 	const options: IOption[] = [
-		{ value: 'USD', label: 'USD' },
-		{ value: 'EUR', label: 'EUR' },
-		{ value: 'GBR', label: 'GBR' },
+		{ value: Currency.USD, label: 'USD' },
+		{ value: Currency.EUR, label: 'EUR' },
+		{ value: Currency.GBR, label: 'GBR' },
 	];
 
 	const customStyles: StylesConfig<IOption> = {
 		control: (nativeStyles) => ({
 			...nativeStyles,
 			height: 30,
-			minHeight: 30,
 
 			backgroundColor: '#ffffff',
 		}),
@@ -29,15 +28,6 @@ const CustomSelect = ({handleSelect}:ISelect) => {
 		singleValue: (nativeStyles) => ({
 			...nativeStyles,
 			fontSize: 12,
-		}),
-		indicatorsContainer: (nativeStyles) => ({
-			...nativeStyles,
-			padding: 0,
-		}),
-
-		indicatorSeparator: (nativeStyles) => ({
-			...nativeStyles,
-			padding: 0,
 		}),
 
 		valueContainer: (nativeStyles) => ({

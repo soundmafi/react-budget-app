@@ -4,35 +4,24 @@ import Input from './components/Input/Input';
 import CustomSelect from './components/CurrencySelect/CurrencySelect';
 import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 import ExpensesList from './components/ExpensesList/ExpensesList';
+import BudgetInput from './components/BudgetInput/BudgetInput';
+import BudgetButtonEdit from './components/BudgetButtonEdit/BudgetButtonEdit';
+import BudgetButtonSave from './components/BudgetButtonSave/BudgetButtonSave';
+import { ChangeEvent } from 'react';
 import { IOption } from './components/CurrencySelect/CurrencySelect';
 import { IExpense } from './types';
 import { CurrencyContext } from './contex/CurrenciesContex/CurrenciesContex';
 import { useContext, useEffect, useState } from 'react';
-import { Currency } from './types';
 import { useExpensesContex } from './contex/ExpensesContex/ExpensesContex';
 import { BudgetContext } from './contex/BudgetContex/BudgetContext';
-import BudgetInput from './components/BudgetInput/BudgetInput';
-import BudgetButtonEdit from './components/BudgetButtonEdit/BudgetButtonEdit';
-import BudgetButtonSave from './components/BudgetButtonSave/BudgetButtonSave';
+import { Currency } from './components/config/Currency';
+
 const App = () => {
-	
 	// set currency
 	const { setCurrency } = useContext(CurrencyContext);
 	const handleSelect = (option: IOption | null): void => {
 		if (option) {
-			let symbol = '';
-			switch (option.value) {
-				case 'USD':
-					symbol = Currency.USD;
-					break;
-				case 'EUR':
-					symbol = Currency.EUR;
-					break;
-				case 'GBR':
-					symbol = Currency.GBR;
-					break;
-			}
-			setCurrency(symbol);
+			setCurrency(option.value);
 		}
 	};
 
@@ -41,7 +30,7 @@ const App = () => {
 	const [searchExpense, setSearchExpense] = useState<string>('');
 	const [resultExpenses, setResultExpenses] = useState<IExpense[]>([]);
 
-	const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
 		setSearchExpense(e.target.value);
 	};
 
@@ -68,7 +57,7 @@ const App = () => {
 		setStateButton(true);
 	};
 
-	const handleGetBudget = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleGetBudget = (e: ChangeEvent<HTMLInputElement>) => {
 		setBudget(+e.target.value);
 	};
 

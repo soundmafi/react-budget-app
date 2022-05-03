@@ -3,10 +3,3 @@ export interface IExpense {
 	name: string;
 	cost: number;
 }
-
-
-export const enum Currency {
-	USD = '$',
-	EUR = '€',
-	GBR = '£',
-}

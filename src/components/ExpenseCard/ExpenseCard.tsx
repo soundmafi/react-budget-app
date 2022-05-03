@@ -4,15 +4,16 @@ import { IExpense } from '../../contex/ExpensesContex/types';
 import { CurrencyContext } from '../../contex/CurrenciesContex/CurrenciesContex';
 import { useContext } from 'react';
 
-
-
 const ExpenseCard = ({ cost, name, id }: IExpense) => {
 	const { currency } = useContext(CurrencyContext);
 	return (
 		<StyledExpenseCard>
 			<StyledExpenseName>{name}</StyledExpenseName>
-			<StyledExpenseBadge>{currency}{cost}</StyledExpenseBadge>
-			<ExpenseButtonClose id = {id}/>
+			<StyledExpenseBadge>
+				{currency}
+				{cost}
+			</StyledExpenseBadge>
+			<ExpenseButtonClose id={id} />
 		</StyledExpenseCard>
 	);
 };
@@ -24,7 +25,7 @@ export const StyledExpenseCard = styled.li`
 	grid-template-columns: 1.1fr 0.2fr 0.1fr;
 
 	padding: 14px 17px 14px 20px;
-	
+
 	border-bottom: 2px solid #ccd5ff;
 `;
 
@@ -38,7 +39,7 @@ export const StyledExpenseName = styled.p`
 export const StyledExpenseBadge = styled.p`
 	width: 60px;
 	padding: 3px 12px;
-	
+
 	font-size: 12px;
 	font-weight: 400;
 	line-height: 15px;

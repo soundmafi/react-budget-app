@@ -1,9 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
+import { ChangeEvent } from 'react';
 interface IBudgetInput {
 	cardName: string;
 	budget: number;
-	handleGetBudget: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	handleGetBudget: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const BudgetInput = ({ handleGetBudget, budget, cardName }: IBudgetInput) => {

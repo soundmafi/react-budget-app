@@ -24,6 +24,6 @@ button {
 
 body {
 	font-family: 'Inter', sans-serif;
-	background: #77E0D1;
+	background: #f3f3f3;
 }
 `;

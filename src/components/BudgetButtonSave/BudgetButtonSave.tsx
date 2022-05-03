@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import { MouseEvent } from 'react';
 
 interface IBudgetButton {
-	hadleClickSave: (e: React.MouseEvent<HTMLButtonElement>) =>void;
+	hadleClickSave: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const CardButtonSave = ({hadleClickSave}: IBudgetButton) => {
+const CardButtonSave = ({ hadleClickSave }: IBudgetButton) => {
 	return <StyledButton onClick={hadleClickSave}>Save</StyledButton>;
 };
 
