@@ -1,17 +1,12 @@
 import styled from 'styled-components';
-import { useExpensesContex } from '../../contex/ExpensesContex/ExpensesContex';
 
 interface IButtonDelete {
-	id: string;
+	handleBtnDelete: () => void;
 }
 
-const ExpenseButtonDelete = ({ id }: IButtonDelete) => {
-	const { expenses, setExpenses } = useExpensesContex();
-	const handleBtnDelete = () => {
-		setExpenses(expenses.filter((expense) => expense.id !== id));
-	};
+const ExpenseButtonDelete = ({ handleBtnDelete }: IButtonDelete) => {
 	return (
-		<StyledExpenseButtonClose onClick={handleBtnDelete} id={id}>
+		<StyledExpenseButtonClose onClick={handleBtnDelete}>
 			<svg
 				width="16"
 				height="16"
@@ -46,8 +41,6 @@ export const StyledExpenseButtonClose = styled.button`
 	width: 20px;
 	height: 20px;
 	margin-left: 15px;
-	
+
 	background-color: #ffffff;
 `;
-
-
