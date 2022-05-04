@@ -14,7 +14,6 @@ import { CurrencyContext } from './contex/CurrenciesContex/CurrenciesContex';
 import { useContext, useEffect, useState } from 'react';
 import { useExpensesContex } from './contex/ExpensesContex/ExpensesContex';
 import { BudgetContext } from './contex/BudgetContex/BudgetContext';
-import { Currency } from './components/config/Currency';
 
 const App = () => {
 	// set currency

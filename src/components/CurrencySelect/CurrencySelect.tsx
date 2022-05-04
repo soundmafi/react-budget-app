@@ -1,9 +1,9 @@
 import Select, { StylesConfig } from 'react-select';
-import { Currency } from '../config/Currency';
+import { Currency } from '../../config/Currency';
 
 export interface IOption {
-	value: string;
-	label: string;
+	value: Currency;
+	label: keyof typeof Currency;
 }
 
 interface ISelect {
