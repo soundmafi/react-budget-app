@@ -27,7 +27,7 @@ const App = () => {
 	// search algorythm
 	const { expenses } = useExpensesContex();
 	const [searchExpense, setSearchExpense] = useState<string>('');
-	const [resultExpenses, setResultExpenses] = useState<IExpense[]>([]);
+	const [resultExpenses, setResultExpenses] = useState<IExpense[]>(expenses);
 
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
 		setSearchExpense(e.target.value);
@@ -35,8 +35,7 @@ const App = () => {
 
 	useEffect(() => {
 		const result = expenses.slice(0);
-		setResultExpenses(result);
-		return setResultExpenses(
+		setResultExpenses(
 			result.filter((expense) =>
 				expense.name.toLowerCase().includes(searchExpense.toLowerCase())
 			)

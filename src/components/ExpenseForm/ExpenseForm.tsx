@@ -12,8 +12,9 @@ const ExpenseForm = () => {
 			console.log('Только цифры');
 		} else {
 			expense.id = uuidv4();
-			expenses.push(expense);
-			setExpenses(expenses);
+			const newExpenses = expenses.slice(0);
+			newExpenses.push(expense);
+			setExpenses(newExpenses);
 			reset();
 		}
 	};
