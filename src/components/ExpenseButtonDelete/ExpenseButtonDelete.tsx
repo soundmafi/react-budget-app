@@ -25,7 +25,7 @@ const ExpenseButtonDelete = ({ id }: IButtonDelete) => {
 					x2="15.0252"
 					y2="15.1726"
 					stroke="#C884A6"
-					stroke-width="2"
+					strokeWidth="2"
 				/>
 				<line
 					x1="14.8493"
@@ -33,7 +33,7 @@ const ExpenseButtonDelete = ({ id }: IButtonDelete) => {
 					x2="0.707138"
 					y2="14.8492"
 					stroke="#C884A6"
-					stroke-width="2"
+					strokeWidth="2"
 				/>
 			</svg>
 		</StyledExpenseButtonClose>
