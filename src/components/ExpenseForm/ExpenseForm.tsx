@@ -80,4 +80,12 @@ const StyledButton = styled.button`
 
 	background-color: #23c9ff;
 	border-radius: 10px;
+
+	&:hover{
+		background-color: #21b4e6;
+	}
+
+	&:active{
+		background-color: #188db4;
+	}
 `;

@@ -23,4 +23,12 @@ export const StyledButton = styled.button`
 	text-align: center;
 	background-color: #ffffff;
 	border-radius: 10px;
+
+	&:hover{
+		background-color: #f3f3f3;
+	}
+
+	&:active{
+		background-color: #ebebeb;
+	}
 `;

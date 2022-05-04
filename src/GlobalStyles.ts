@@ -14,6 +14,7 @@ input{
 
 button {
 	padding: 0;
+	appearance: none;
 	
 	font-family: inherit;
 
