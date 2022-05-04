@@ -45,14 +45,14 @@ const App = () => {
 	// budget algorythm
 	const { budget, setBudget } = useContext(BudgetContext);
 	const { currency } = useContext(CurrencyContext);
-	const [stateButton, setStateButton] = useState(true);
+	const [isEdit, setEditButton] = useState(true);
 
 	const hadleClickEdit = () => {
-		setStateButton(false);
+		setEditButton(false);
 	};
 
 	const hadleClickSave = () => {
-		setStateButton(true);
+		setEditButton(true);
 	};
 
 	const handleGetBudget = (e: ChangeEvent<HTMLInputElement>) => {
@@ -71,7 +71,7 @@ const App = () => {
 				</StyledHeader>
 				<StyledCardContainer>
 					<StyledBudgetCard cardName="Budget">
-						{stateButton ? (
+						{isEdit ? (
 							<StyledBudgetCardText>
 								Budget: {currency} {budget}
 							</StyledBudgetCardText>
@@ -82,7 +82,7 @@ const App = () => {
 								budget={budget}
 							/>
 						)}
-						{stateButton ? (
+						{isEdit ? (
 							<BudgetButtonEdit hadleClickEdit={hadleClickEdit} />
 						) : (
 							<BudgetButtonSave hadleClickSave={hadleClickSave} />
