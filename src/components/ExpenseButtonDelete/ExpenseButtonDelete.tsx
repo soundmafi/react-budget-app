@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { StyledExpenseButtonClose } from './styles';
 
 interface IButtonDelete {
 	handleBtnDelete: () => void;
@@ -36,11 +36,3 @@ const ExpenseButtonDelete = ({ handleBtnDelete }: IButtonDelete) => {
 };
 
 export default ExpenseButtonDelete;
-
-export const StyledExpenseButtonClose = styled.button`
-	width: 20px;
-	height: 20px;
-	margin-left: 15px;
-
-	background-color: #ffffff;
-`;

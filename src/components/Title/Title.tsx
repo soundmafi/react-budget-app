@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { StyledTitle } from "./styles";
 
 interface Ititle {
 	textTitle: string;
@@ -9,14 +9,3 @@ const Title = ({ textTitle }: Ititle) => {
 };
 
 export default Title;
-
-const StyledTitle = styled.h2`
-	display: block;
-
-	margin-bottom: 30px;
-
-	font-size: 24px;
-	font-weight: 700;
-	line-height: 29px;
-	text-align: left;
-`;

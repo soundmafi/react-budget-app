@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { ChangeEvent } from 'react';
+import { StyledBudgetInput } from './styles';
 interface IBudgetInput {
 	cardName: string;
 	budget: number;
@@ -22,14 +22,3 @@ const BudgetInput = ({ handleGetBudget, budget, cardName }: IBudgetInput) => {
 };
 
 export default BudgetInput;
-
-const StyledBudgetInput = styled.input`
-	width: 70%;
-
-	font-size: 20px;
-	font-weight: 500;
-	line-height: 24px;
-	color: #ffffff99;
-
-	background: inherit;
-`;

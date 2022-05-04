@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import { IExpense } from '../../contex/ExpensesContex/types';
 import ExpenseCard from '../ExpenseCard/ExpenseCard';
+import { StyledExpensesList } from './styles';
 
 interface IList {
 	resultExpenses: IExpense[];
@@ -25,8 +25,4 @@ const ExpensesList = ({ resultExpenses }: IList) => {
 
 export default ExpensesList;
 
-const StyledExpensesList = styled.ul`
-	width: 100%;
-	margin-top: 30px;
-	margin-bottom: 30px;
-`;
+
