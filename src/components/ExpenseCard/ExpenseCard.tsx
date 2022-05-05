@@ -1,8 +1,8 @@
 import ExpenseButtonClose from '../ExpenseButtonDelete/ExpenseButtonDelete';
-import { IExpense } from '../../contex/ExpensesContex/types';
-import { CurrencyContext } from '../../contex/CurrenciesContex/CurrenciesContex';
+import { IExpense } from '../../context/ExpensesContext/types';
+import { CurrencyContext } from '../../context/CurrenciesContext/CurrenciesContext';
 import { useContext } from 'react';
-import { useExpensesContex } from '../../contex/ExpensesContex/ExpensesContex';
+import { useExpensesContex } from '../../context/ExpensesContext/ExpensesContext';
 import { StyledExpenseBadge, StyledExpenseCard, StyledExpenseName } from './styles';
 
 const ExpenseCard = ({ cost, name, id }: IExpense) => {

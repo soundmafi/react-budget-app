@@ -1,5 +1,5 @@
 
-import { IExpense } from '../../contex/ExpensesContex/types';
+import { IExpense } from '../../context/ExpensesContext/types';
 import ExpenseCard from '../ExpenseCard/ExpenseCard';
 import { StyledExpensesList, StyledAlert} from './styles';
 

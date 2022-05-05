@@ -9,10 +9,10 @@ import BudgetButtonSave from './components/BudgetButtonSave/BudgetButtonSave';
 import { ChangeEvent } from 'react';
 import { IOption } from './components/CurrencySelect/CurrencySelect';
 import { IExpense } from './types';
-import { CurrencyContext } from './contex/CurrenciesContex/CurrenciesContex';
+import { CurrencyContext } from './context/CurrenciesContext/CurrenciesContext';
 import { useContext, useEffect, useState } from 'react';
-import { useExpensesContex } from './contex/ExpensesContex/ExpensesContex';
-import { BudgetContext } from './contex/BudgetContex/BudgetContext';
+import { useExpensesContex } from './context/ExpensesContext/ExpensesContext';
+import { BudgetContext } from './context/BudgetContext/BudgetContext';
 import { StyledApp, StyledBudgetCard, StyledBudgetCardText, StyledCardContainer, StyledContainer, StyledHeader } from './styles';
 
 const App = () => {

@@ -1,5 +1,5 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useExpensesContex } from '../../contex/ExpensesContex/ExpensesContex';
+import { useExpensesContex } from '../../context/ExpensesContext/ExpensesContext';
 import { IExpense } from '../../types';
 import { v4 as uuidv4 } from 'uuid';
 import { StyledButton, StyledExpenseForm, StyledInput } from './styles';

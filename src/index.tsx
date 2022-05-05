@@ -2,9 +2,9 @@ import React from 'react';
 import App from './App';
 import { createRoot } from 'react-dom/client';
 import { GlobalStyles } from './GlobalStyles';
-import { ExpenseContextProvider } from './contex/ExpensesContex/ExpensesContex';
-import { BudgetContextProvider } from './contex/BudgetContex/BudgetContext';
-import { CurrencyContextProvider } from './contex/CurrenciesContex/CurrenciesContex';
+import { ExpenseContextProvider } from './context/ExpensesContext/ExpensesContext';
+import { BudgetContextProvider } from './context/BudgetContext/BudgetContext';
+import { CurrencyContextProvider } from './context/CurrenciesContext/CurrenciesContext';
 
 const container = document.getElementById('root');
 if (!container) {
