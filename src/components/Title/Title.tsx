@@ -1,11 +1,11 @@
 import { StyledTitle } from "./styles";
 
 interface Ititle {
-	textTitle: string;
+	text: string;
 }
 
-const Title = ({ textTitle }: Ititle) => {
-	return <StyledTitle>{textTitle}</StyledTitle>;
+const Title = ({ text }: Ititle) => {
+	return <StyledTitle>{text}</StyledTitle>;
 };
 
 export default Title;

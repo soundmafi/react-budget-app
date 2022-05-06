@@ -64,7 +64,7 @@ const App = () => {
 		<StyledApp>
 			<StyledContainer>
 				<StyledHeader>
-					<Title textTitle="Budget App" />
+					<Title text="Budget App" />
 					<CustomSelect />
 				</StyledHeader>
 				<StyledCardContainer>
@@ -106,10 +106,10 @@ const App = () => {
 						</StyledBudgetCardText>
 					</StyledBudgetCard>
 				</StyledCardContainer>
-				<Title textTitle="Expenses" />
+				<Title text="Expenses" />
 				<Input searchExpense={searchExpense} handleSearch={handleSearch} />
 				<ExpensesList resultExpenses={resultExpenses} />
-				<Title textTitle="Add Expense" />
+				<Title text="Add Expense" />
 				<ExpenseForm />
 			</StyledContainer>
 		</StyledApp>
