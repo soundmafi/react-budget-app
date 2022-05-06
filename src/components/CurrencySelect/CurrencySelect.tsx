@@ -1,16 +1,21 @@
+import { useContext } from 'react';
 import Select, { StylesConfig } from 'react-select';
 import { Currency } from '../../config/Currency';
+import { CurrencyContext } from '../../context/CurrenciesContext/CurrenciesContext';
 
 export interface IOption {
 	value: Currency;
 	label: keyof typeof Currency;
 }
 
-interface ISelect {
-	handleSelect: (option: IOption | null) => void;
-}
+const CustomSelect = () => {
+	const { setCurrency } = useContext(CurrencyContext);
+	const handleSelect = (option: IOption | null): void => {
+		if (option) {
+			setCurrency(option.value);
+		}
+	};
 
-const CustomSelect = ({ handleSelect }: ISelect) => {
 	const options: IOption[] = [
 		{ value: Currency.USD, label: 'USD' },
 		{ value: Currency.EUR, label: 'EUR' },

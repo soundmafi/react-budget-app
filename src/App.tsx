@@ -7,23 +7,21 @@ import BudgetInput from './components/BudgetInput/BudgetInput';
 import BudgetButtonEdit from './components/BudgetButtonEdit/BudgetButtonEdit';
 import BudgetButtonSave from './components/BudgetButtonSave/BudgetButtonSave';
 import { ChangeEvent } from 'react';
-import { IOption } from './components/CurrencySelect/CurrencySelect';
 import { IExpense } from './types';
 import { CurrencyContext } from './context/CurrenciesContext/CurrenciesContext';
 import { useContext, useEffect, useState } from 'react';
 import { useExpensesContex } from './context/ExpensesContext/ExpensesContext';
 import { BudgetContext } from './context/BudgetContext/BudgetContext';
-import { StyledApp, StyledBudgetCard, StyledBudgetCardText, StyledCardContainer, StyledContainer, StyledHeader } from './styles';
+import {
+	StyledApp,
+	StyledBudgetCard,
+	StyledBudgetCardText,
+	StyledCardContainer,
+	StyledContainer,
+	StyledHeader,
+} from './Appstyles';
 
 const App = () => {
-	// set currency
-	const { setCurrency } = useContext(CurrencyContext);
-	const handleSelect = (option: IOption | null): void => {
-		if (option) {
-			setCurrency(option.value);
-		}
-	};
-
 	// search algorythm
 	const { expenses } = useExpensesContex();
 	const [searchExpense, setSearchExpense] = useState<string>('');
@@ -67,7 +65,7 @@ const App = () => {
 			<StyledContainer>
 				<StyledHeader>
 					<Title textTitle="Budget App" />
-					<CustomSelect handleSelect={handleSelect} />
+					<CustomSelect />
 				</StyledHeader>
 				<StyledCardContainer>
 					<StyledBudgetCard cardName="Budget">
