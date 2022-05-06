@@ -21,6 +21,7 @@ import {
 	StyledHeader,
 } from './Appstyles';
 import CardBudget from './components/CardBudget/CardBudget';
+import CardRemaining from './components/CardRemaining/CardRemaining';
 
 const App = () => {
 	// search algorythm
@@ -41,11 +42,8 @@ const App = () => {
 	}, [searchExpense, expenses]);
 
 	// budget algorythm
-	const { budget, setBudget } = useContext(BudgetContext);
 	const { currency } = useContext(CurrencyContext);
-
 	const spent = expenses.reduce((sumExpenses, expense) => sumExpenses + expense.cost, 0);
-	const remaining = budget - spent;
 
 	return (
 		<StyledApp>
@@ -56,20 +54,7 @@ const App = () => {
 				</StyledHeader>
 				<StyledCardContainer>
 					<CardBudget/>
-					{remaining >= 0 ? (
-						<StyledBudgetCard cardName="Remaining">
-							<StyledBudgetCardText>
-								Remaining: {currency} {remaining}
-							</StyledBudgetCardText>
-						</StyledBudgetCard>
-					) : (
-						<StyledBudgetCard cardName="Overspending by">
-							<StyledBudgetCardText>
-								Overspending by: {currency} {-remaining}
-							</StyledBudgetCardText>
-						</StyledBudgetCard>
-					)}
-
+					<CardRemaining/>		
 					<StyledBudgetCard cardName="Spent">
 						<StyledBudgetCardText>
 							Spent so far: {currency} {spent}
