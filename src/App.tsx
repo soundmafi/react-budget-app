@@ -20,6 +20,7 @@ import {
 	StyledContainer,
 	StyledHeader,
 } from './Appstyles';
+import CardBudget from './components/CardBudget/CardBudget';
 
 const App = () => {
 	// search algorythm
@@ -42,19 +43,6 @@ const App = () => {
 	// budget algorythm
 	const { budget, setBudget } = useContext(BudgetContext);
 	const { currency } = useContext(CurrencyContext);
-	const [isEdit, setIsEdit] = useState(true);
-
-	const hadleClickEdit = () => {
-		setIsEdit(false);
-	};
-
-	const hadleClickSave = () => {
-		setIsEdit(true);
-	};
-
-	const handleGetBudget = (e: ChangeEvent<HTMLInputElement>) => {
-		setBudget(+e.target.value);
-	};
 
 	const spent = expenses.reduce((sumExpenses, expense) => sumExpenses + expense.cost, 0);
 	const remaining = budget - spent;
@@ -67,24 +55,7 @@ const App = () => {
 					<CustomSelect />
 				</StyledHeader>
 				<StyledCardContainer>
-					<StyledBudgetCard cardName="Budget">
-						{isEdit ? (
-							<StyledBudgetCardText>
-								Budget: {currency} {budget}
-							</StyledBudgetCardText>
-						) : (
-							<BudgetInput
-								cardName="Budget"
-								handleGetBudget={handleGetBudget}
-								budget={budget}
-							/>
-						)}
-						{isEdit ? (
-							<BudgetButtonEdit hadleClickEdit={hadleClickEdit} />
-						) : (
-							<BudgetButtonSave hadleClickSave={hadleClickSave} />
-						)}
-					</StyledBudgetCard>
+					<CardBudget/>
 					{remaining >= 0 ? (
 						<StyledBudgetCard cardName="Remaining">
 							<StyledBudgetCardText>
