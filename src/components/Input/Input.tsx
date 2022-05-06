@@ -1,12 +1,13 @@
 import { ChangeEvent } from 'react';
+import { useSearchContex } from '../../context/SearchContext/SearchContext';
 import { StyledInput } from './styles';
 
-interface IInput {
-	handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
-	searchExpense: string;
-}
+const Input = () => {
+	const { searchExpense, setSearchExpense } = useSearchContex();
+	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+		setSearchExpense(e.target.value);
+	};
 
-const Input = ({ searchExpense, handleSearch }: IInput) => {
 	return (
 		<label htmlFor="search">
 			<StyledInput

@@ -5,6 +5,7 @@ import { GlobalStyles } from './GlobalStyles';
 import { ExpenseContextProvider } from './context/ExpensesContext/ExpensesContext';
 import { BudgetContextProvider } from './context/BudgetContext/BudgetContext';
 import { CurrencyContextProvider } from './context/CurrenciesContext/CurrenciesContext';
+import { SearchContextProvider } from './context/SearchContext/SearchContext';
 
 const container = document.getElementById('root');
 if (!container) {
@@ -14,13 +15,15 @@ if (!container) {
 const root = createRoot(container);
 root.render(
 	<React.StrictMode>
-		<BudgetContextProvider>
-			<CurrencyContextProvider>
-				<ExpenseContextProvider>
-					<GlobalStyles />
-					<App />
-				</ExpenseContextProvider>
-			</CurrencyContextProvider>
-		</BudgetContextProvider>
+		<SearchContextProvider>
+			<BudgetContextProvider>
+				<CurrencyContextProvider>
+					<ExpenseContextProvider>
+						<GlobalStyles />
+						<App />
+					</ExpenseContextProvider>
+				</CurrencyContextProvider>
+			</BudgetContextProvider>
+		</SearchContextProvider>
 	</React.StrictMode>
 );
