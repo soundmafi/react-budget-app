@@ -1,11 +1,11 @@
 import { ChangeEvent, useContext, useState } from 'react';
-import styled from 'styled-components';
 import { StyledBudgetCardText } from '../../Appstyles';
 import { BudgetContext } from '../../context/BudgetContext/BudgetContext';
 import { CurrencyContext } from '../../context/CurrenciesContext/CurrenciesContext';
 import BudgetButtonEdit from '../BudgetButtonEdit/BudgetButtonEdit';
 import BudgetButtonSave from '../BudgetButtonSave/BudgetButtonSave';
 import BudgetInput from '../BudgetInput/BudgetInput';
+import { StyledCardBudget } from './styles';
 
 const CardBudget = () => {
 	const [isEdit, setIsEdit] = useState(true);
@@ -45,16 +45,3 @@ const CardBudget = () => {
 };
 
 export default CardBudget;
-
-const StyledCardBudget = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-
-	width: 100%;
-	height: 100px;
-	padding: 20px;
-
-	border-radius: 10px;
-	background-color: #7cc6fe;
-`;
