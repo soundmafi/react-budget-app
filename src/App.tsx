@@ -32,9 +32,8 @@ const App = () => {
 	};
 
 	useEffect(() => {
-		const result = expenses.slice(0);
 		setResultExpenses(
-			result.filter((expense) =>
+			expenses.filter((expense) =>
 				expense.name.toLowerCase().includes(searchExpense.toLowerCase())
 			)
 		);
