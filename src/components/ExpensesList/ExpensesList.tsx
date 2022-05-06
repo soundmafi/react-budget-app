@@ -1,23 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useExpensesContex } from '../../context/ExpensesContext/ExpensesContext';
 import { IExpense } from '../../context/ExpensesContext/types';
-import { useSearchContex } from '../../context/SearchContext/SearchContext';
 import ExpenseCard from '../ExpenseCard/ExpenseCard';
 import { StyledExpensesList, StyledAlert } from './styles';
 
-const ExpensesList = () => {
-	const { expenses } = useExpensesContex();
-	const { searchExpense } = useSearchContex();
-	const [resultExpenses, setResultExpenses] = useState<IExpense[]>(expenses);
+interface IList {
+	resultExpenses: IExpense[];
+}
 
-	useEffect(() => {
-		setResultExpenses(
-			expenses.filter((expense) =>
-				expense.name.toLowerCase().includes(searchExpense.toLowerCase())
-			)
-		);
-	}, [searchExpense, expenses]);
-
+const ExpensesList = ({ resultExpenses }: IList) => {
 	return (
 		<StyledExpensesList>
 			{resultExpenses.length > 0 ? (

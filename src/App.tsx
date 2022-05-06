@@ -1,12 +1,11 @@
 import Title from './components/Title/Title';
-import SearchInput from './components/SearchInput/SearchInput';
 import CustomSelect from './components/CurrencySelect/CurrencySelect';
 import ExpenseForm from './components/ExpenseForm/ExpenseForm';
-import ExpensesList from './components/ExpensesList/ExpensesList';
 import { StyledApp, StyledCardContainer, StyledContainer, StyledHeader } from './Appstyles';
 import CardBudget from './components/CardBudget/CardBudget';
 import CardRemaining from './components/CardRemaining/CardRemaining';
 import CardSpent from './components/CardSpent/CardSpent';
+import ContainerList from './components/ContainerList/ContainerList';
 
 const App = () => {
 	return (
@@ -22,8 +21,7 @@ const App = () => {
 					<CardSpent />
 				</StyledCardContainer>
 				<Title text="Expenses" />
-				<SearchInput />
-				<ExpensesList />
+				<ContainerList />
 				<Title text="Add Expense" />
 				<ExpenseForm />
 			</StyledContainer>
