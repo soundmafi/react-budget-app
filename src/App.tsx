@@ -1,5 +1,5 @@
 import Title from './components/Title/Title';
-import Input from './components/Input/Input';
+import SearchInput from './components/SearchInput/SearchInput';
 import CustomSelect from './components/CurrencySelect/CurrencySelect';
 import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 import ExpensesList from './components/ExpensesList/ExpensesList';
@@ -22,7 +22,7 @@ const App = () => {
 					<CardSpent />
 				</StyledCardContainer>
 				<Title text="Expenses" />
-				<Input />
+				<SearchInput />
 				<ExpensesList />
 				<Title text="Add Expense" />
 				<ExpenseForm />

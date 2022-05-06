@@ -2,7 +2,7 @@ import { ChangeEvent } from 'react';
 import { useSearchContex } from '../../context/SearchContext/SearchContext';
 import { StyledInput } from './styles';
 
-const Input = () => {
+const SearchInput = () => {
 	const { searchExpense, setSearchExpense } = useSearchContex();
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
 		setSearchExpense(e.target.value);
@@ -21,4 +21,4 @@ const Input = () => {
 	);
 };
 
-export default Input;
+export default SearchInput;
