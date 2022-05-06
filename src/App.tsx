@@ -42,14 +42,14 @@ const App = () => {
 	// budget algorythm
 	const { budget, setBudget } = useContext(BudgetContext);
 	const { currency } = useContext(CurrencyContext);
-	const [isEdit, setEditButton] = useState(true);
+	const [isEdit, setIsEdit] = useState(true);
 
 	const hadleClickEdit = () => {
-		setEditButton(false);
+		setIsEdit(false);
 	};
 
 	const hadleClickSave = () => {
-		setEditButton(true);
+		setIsEdit(true);
 	};
 
 	const handleGetBudget = (e: ChangeEvent<HTMLInputElement>) => {
