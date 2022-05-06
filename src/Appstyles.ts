@@ -24,26 +24,6 @@ export const StyledHeader = styled.header`
 	grid-template-columns: 1fr 0.3fr;
 `;
 
-export const StyledBudgetCard = styled.div<{ cardName: string }>`
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-
-	width: 100%;
-	height: 100px;
-	padding: 20px;
-
-	border-radius: 10px;
-	background-color: ${({ cardName }) =>
-		cardName === 'Budget'
-			? '#7cc6fe'
-			: cardName === 'Remaining'
-			? '#CCD5FF'
-			: cardName === 'Spent'
-			? '#E7BBE3'
-			: '#FF0000'};
-`;
-
 export const StyledBudgetCardText = styled.p`
 	font-weight: 500;
 	font-size: 20px;
